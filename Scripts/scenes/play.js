@@ -15,6 +15,9 @@ var scenes;
 (function (scenes) {
     var PlayScene = /** @class */ (function (_super) {
         __extends(PlayScene, _super);
+        // private enemy:objects.Enemy;
+        // private enemies:objects.Enemy[];
+        //private enemyNum:number;
         // Constructor
         function PlayScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
@@ -27,29 +30,28 @@ var scenes;
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             // this.enemy = new objects.Enemy(this.assetManager);
-            this.enemies = new Array();
+            /*this.enemies = new Array<objects.Enemy>();
             this.enemyNum = 5;
-            for (var i = 0; i < this.enemyNum; i++) {
+            for(let i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
-            }
+            }*/
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             // this.background.Update();
             this.player.Update();
             // this.enemy.Update();
-            this.enemies.forEach(function (e) {
+            /*this.enemies.forEach(e => {
                 e.Update();
-            });
+            })*/
         };
         PlayScene.prototype.Main = function () {
-            var _this = this;
             this.addChild(this.background);
             this.addChild(this.player);
             // this.addChild(this.enemy);
-            this.enemies.forEach(function (e) {
-                _this.addChild(e);
-            });
+            /*this.enemies.forEach(e => {
+                this.addChild(e);
+            })*/
         };
         return PlayScene;
     }(objects.Scene));
