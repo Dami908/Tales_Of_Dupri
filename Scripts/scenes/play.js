@@ -27,7 +27,7 @@ var scenes;
         PlayScene.prototype.Start = function () {
             console.log("Play scene start");
             // Inintialize our variables
-            this.background = new objects.Background(this.assetManager);
+            this.background2 = new objects.Background2(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             // this.enemy = new objects.Enemy(this.assetManager);
             /*this.enemies = new Array<objects.Enemy>();
@@ -46,7 +46,7 @@ var scenes;
             })*/
         };
         PlayScene.prototype.Main = function () {
-            this.addChild(this.background);
+            this.addChild(this.background2);
             this.addChild(this.player);
             // this.addChild(this.enemy);
             /*this.enemies.forEach(e => {
