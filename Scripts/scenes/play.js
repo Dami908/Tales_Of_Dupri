@@ -15,9 +15,6 @@ var scenes;
 (function (scenes) {
     var PlayScene = /** @class */ (function (_super) {
         __extends(PlayScene, _super);
-        // private enemy:objects.Enemy;
-        // private enemies:objects.Enemy[];
-        //private enemyNum:number;
         // Constructor
         function PlayScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
@@ -29,29 +26,42 @@ var scenes;
             // Inintialize our variables
             this.background2 = new objects.Background2(this.assetManager);
             this.player = new objects.Player(this.assetManager);
-            // this.enemy = new objects.Enemy(this.assetManager);
-            /*this.enemies = new Array<objects.Enemy>();
-            this.enemyNum = 5;
-            for(let i = 0; i < this.enemyNum; i++) {
+            this.enemy = new objects.Enemy(this.assetManager);
+            this.enemies = new Array();
+            this.enemyNum = 1;
+            for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
-            }*/
+            }
             this.Main();
         };
         PlayScene.prototype.Update = function () {
             // this.background.Update();
             this.player.Update();
-            // this.enemy.Update();
-            /*this.enemies.forEach(e => {
+            this.enemy.Update();
+            //Returns a message on the console log window when the position of the enemy is equall to the position of the player
+            if (this.player.x == this.enemy.x || this.player.y == this.enemy.y) {
+                console.log("collide");
+            }
+            this.enemies.forEach(function (e) {
                 e.Update();
-            })*/
+                //console.log(e.x);
+                // if(e.x==this.player.x && e.y==this.player.y){
+                //     console.log(e.y);
+                //  }
+            });
+        };
+        PlayScene.prototype.collission = function () {
+            for (var i = 0; i < this.enemyNum; i++) {
+            }
         };
         PlayScene.prototype.Main = function () {
+            var _this = this;
             this.addChild(this.background2);
             this.addChild(this.player);
-            // this.addChild(this.enemy);
-            /*this.enemies.forEach(e => {
-                this.addChild(e);
-            })*/
+            this.addChild(this.enemy);
+            this.enemies.forEach(function (e) {
+                _this.addChild(e);
+            });
         };
         return PlayScene;
     }(objects.Scene));

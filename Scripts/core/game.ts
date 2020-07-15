@@ -15,12 +15,12 @@
 
     assetManifest = [
         {id:"startButton", src:"./Assets/StartButton.png"},
-        {id:"nextButton", src:"./Assets/NextButton.png"},
+        {id:"nextButton", src:"./Assets/Play.png"},
         {id:"backButton", src:"./Assets/BackButton.png"},
         {id:"background2",src:"./Assets/space.jpg"},
         {id:"background", src:"./Assets/409.png"},
         {id:"player", src:"./Assets/Shut.png"},
-        {id:"enemy", src:"./Assets/enemy.png"}
+        {id:"enemy", src:"./Assets/asteroids.png"}
     ];
 
     function Init() {

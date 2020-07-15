@@ -25,12 +25,12 @@ var scenes;
         StartScene.prototype.Start = function () {
             // Initialize our objects for this scene
             this.background = new objects.Background(this.assetManager);
-            this.welcomeLabel = new objects.Label("Tales Of Dupri.", "35px", "Consolas", "#FFFFFF", 320, 90, true);
-            this.welcomeLabel3 = new objects.Label("Space delivery extraordinaire.", "35px", "Consolas", "#FFFFFF", 320, 130, true);
-            this.welcomeLabel1 = new objects.Label("A World of Adventure  and steamy meals Awaits you.", "20px", "Consolas", "#FFFFFF", 320, 160, true);
-            this.welcomeLabel2 = new objects.Label("Are you ready ;)!!!!!!!", "20px", "Consolas", "#FFFFFF", 320, 180, true);
+            this.welcomeLabel = new objects.Label("Tales Of Dupri.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
+            this.welcomeLabel3 = new objects.Label("Space Delivery Extraordinaire.", "35px", "Consolas", "#FFFFFF", 305, 100, true);
+            this.welcomeLabel1 = new objects.Label("A World of Adventure  and steamy meals Awaits you.", "20px", "Consolas", "#FFFFFF", 305, 150, true);
+            this.welcomeLabel2 = new objects.Label("Are you ready ;)!!!!!!!", "20px", "Consolas", "#FFFFFF", 305, 190, true);
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 320, 300);
+            this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
             this.Main();
         };
         StartScene.prototype.Update = function () {

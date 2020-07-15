@@ -26,14 +26,20 @@ module objects {
         }
         public CheckBound():void {
             // Right boundary
-            if(this.x >= 640 - this.halfW)
+            if(this.x >=600 - this.halfW)
             {
                 // I have collided with the right boundary
-                this.x = 640 - this.halfW;
+                this.x = 600 - this.halfW;
             }
             // Left boundary
             if(this.x <= this.halfW) {
                 this.x = this.halfW;
+            }
+            if(this.y>=800-this.halfH){
+                this.y=800-this.halfH;
+            }
+            if(this.y<=this.halfH){
+                this.y=this.halfH;
             }
         }
     }
