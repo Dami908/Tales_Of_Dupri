@@ -21,6 +21,9 @@ module objects {
         public Move():void {
             this.y += 5;
         }
+        public end():void{
+            this.y=null;
+        }
         public CheckBound():void {
             if(this.y >= 900 + this.halfH + 25) {
                 this.Reset();

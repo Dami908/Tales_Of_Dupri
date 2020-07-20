@@ -31,6 +31,10 @@ var scenes;
             this.welcomeLabel2 = new objects.Label("Are you ready ;)!!!!!!!", "20px", "Consolas", "#FFFFFF", 305, 190, true);
             // NOTE: PreloadJS manifest id
             this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
+            //Instantiate Sound
+            this.backgroundMusic = createjs.Sound.play("start_music");
+            this.backgroundMusic.loop = -1;
+            this.backgroundMusic.volume = 0.2;
             this.Main();
         };
         StartScene.prototype.Update = function () {

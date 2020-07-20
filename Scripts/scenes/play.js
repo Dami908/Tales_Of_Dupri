@@ -18,6 +18,7 @@ var scenes;
         // Constructor
         function PlayScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            _this.timer = 0;
             _this.Start();
             return _this;
         }
@@ -28,7 +29,7 @@ var scenes;
             this.player = new objects.Player(this.assetManager);
             this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array();
-            this.enemyNum = 1;
+            this.enemyNum = 2;
             for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
             }
@@ -38,15 +39,20 @@ var scenes;
             var _this = this;
             // this.background.Update();
             this.player.Update();
-            this.enemy.Update();
+            //this.enemy.Update();
+            this.counter = this.timer++;
             //Returns a message on the console log window when the position of the enemy is equall to the position of the player
-            this.enemies.forEach(function (e) {
-                e.Update();
-                managers.Collision.Check(_this.player, e);
-            });
-        };
-        PlayScene.prototype.collission = function () {
-            for (var i = 0; i < this.enemyNum; i++) {
+            if (this.counter < 10000) {
+                console.log(this.counter);
+                this.enemies.forEach(function (e) {
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
+                });
+            }
+            else if (this.counter > 10000) {
+                this.enemies.forEach(function (e) {
+                    e.end();
+                });
             }
         };
         PlayScene.prototype.Main = function () {

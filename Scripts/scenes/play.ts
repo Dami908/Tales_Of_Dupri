@@ -6,6 +6,8 @@ module scenes {
         private enemy:objects.Enemy;
         private enemies:objects.Enemy[];
         private enemyNum:number;
+        private timer:number=0;
+        private counter:number;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -21,7 +23,7 @@ module scenes {
             this.player = new objects.Player(this.assetManager);
             this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array<objects.Enemy>();
-            this.enemyNum = 1;
+            this.enemyNum = 2;
             for(let i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
                 
@@ -34,20 +36,26 @@ module scenes {
         public Update():void {
             // this.background.Update();
             this.player.Update();
-             this.enemy.Update();
+             //this.enemy.Update();
+             this.counter=this.timer++;
              //Returns a message on the console log window when the position of the enemy is equall to the position of the player
-            this.enemies.forEach(e => {
-                e.Update();
-                managers.Collision.Check(this.player,e);
-            })
+             if (this.counter<10000){
+                 console.log(this.counter);
+                this.enemies.forEach(e => {
+                    e.Update();
+                    managers.Collision.Check(this.player,e);
+                })
+             }
+             else if(this.counter>10000){
+                this.enemies.forEach(e => {
+                    e.end();
+                })
+             }
+            
            
         }
 
-        public collission():void{
-            for(let i=0;i<this.enemyNum;i++){
-
-            }
-        }
+       
 
         public Main():void {
             this.addChild(this.background2);

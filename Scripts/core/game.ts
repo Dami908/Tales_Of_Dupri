@@ -20,7 +20,8 @@
         {id:"background2",src:"./Assets/space.jpg"},
         {id:"background", src:"./Assets/409.png"},
         {id:"player", src:"./Assets/Shut.png"},
-        {id:"enemy", src:"./Assets/asteroids.png"}
+        {id:"enemy", src:"./Assets/asteroids.png"},
+        {id:"start_music",src:"./Audio/Melodic_House.mp3"}
     ];
 
     function Init() {

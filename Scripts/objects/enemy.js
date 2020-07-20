@@ -37,6 +37,9 @@ var objects;
         Enemy.prototype.Move = function () {
             this.y += 5;
         };
+        Enemy.prototype.end = function () {
+            this.y = null;
+        };
         Enemy.prototype.CheckBound = function () {
             if (this.y >= 900 + this.halfH + 25) {
                 this.Reset();
