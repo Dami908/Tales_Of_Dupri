@@ -35,19 +35,14 @@ var scenes;
             this.Main();
         };
         PlayScene.prototype.Update = function () {
+            var _this = this;
             // this.background.Update();
             this.player.Update();
             this.enemy.Update();
             //Returns a message on the console log window when the position of the enemy is equall to the position of the player
-            if (this.player.x == this.enemy.x || this.player.y == this.enemy.y) {
-                console.log("collide");
-            }
             this.enemies.forEach(function (e) {
                 e.Update();
-                //console.log(e.x);
-                // if(e.x==this.player.x && e.y==this.player.y){
-                //     console.log(e.y);
-                //  }
+                managers.Collision.Check(_this.player, e);
             });
         };
         PlayScene.prototype.collission = function () {
