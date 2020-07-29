@@ -19,7 +19,7 @@ var scenes;
         function PlayScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
             _this.timer = 0;
-            _this.Stimer = 100;
+            _this.Stimer = 10000;
             _this.Start();
             return _this;
         }
@@ -30,9 +30,19 @@ var scenes;
             this.player = new objects.Player(this.assetManager);
             this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array();
+            this.enemies2 = new Array();
+            this.enemies3 = new Array();
             this.enemyNum = 2;
+            this.enemyNum2 = 3;
+            this.enemyNum3 = 4;
             for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
+            for (var i = 0; i < this.enemyNum2; i++) {
+                this.enemies2[i] = new objects.Enemy2(this.assetManager);
+            }
+            for (var i = 0; i < this.enemyNum3; i++) {
+                this.enemies3[i] = new objects.Enemy3(this.assetManager);
             }
             this.scoreBoard = new managers.Scoreboard();
             this.scoreBoard.x = 10;
@@ -47,17 +57,39 @@ var scenes;
             this.counter = this.timer++;
             this.scoreCounter = this.Stimer--;
             this.scoreBoard.scoreLabel.text = "Score:" + this.counter;
-            //Returns a message on the console log window when the position of the enemy is equall to the position of the player
-            if (this.counter < 10000) {
+            this.scoreBoard.TimerLabel.text = "Time Left" + this.scoreCounter;
+            //Returns a message on the onsole log window when the position of the enemy is equall to the position of the player
+            if (this.counter < 2500) {
                 console.log(this.counter);
                 this.enemies.forEach(function (e) {
                     e.Update();
                     managers.Collision.Check(_this.player, e);
                 });
             }
-            else if (this.counter > 100) {
+            else if (this.counter > 2500 && this.counter < 5000) {
+                console.log(this.counter);
                 this.enemies.forEach(function (e) {
-                    e.end();
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
+                });
+                this.enemies2.forEach(function (e) {
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
+                });
+            }
+            else if (this.counter > 5000) {
+                console.log(this.counter);
+                this.enemies.forEach(function (e) {
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
+                });
+                this.enemies2.forEach(function (e) {
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
+                });
+                this.enemies3.forEach(function (e) {
+                    e.Update();
+                    managers.Collision.Check(_this.player, e);
                 });
             }
             if (this.scoreCounter == 0) {
@@ -68,8 +100,13 @@ var scenes;
             var _this = this;
             this.addChild(this.background2);
             this.addChild(this.player);
-            this.addChild(this.enemy);
             this.enemies.forEach(function (e) {
+                _this.addChild(e);
+            });
+            this.enemies2.forEach(function (e) {
+                _this.addChild(e);
+            });
+            this.enemies3.forEach(function (e) {
                 _this.addChild(e);
             });
             this.addChild(this.scoreBoard);
