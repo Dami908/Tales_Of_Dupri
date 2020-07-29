@@ -18,10 +18,28 @@ module objects {
         public Reset():void {}
         public Move():void {
             // I need a reference to the "STAGE" createjs object to get mouse position
-            this.x = objects.Game.stage.mouseX;
-            this.y=objects.Game.stage.mouseY;
-
+            // this.x = objects.Game.stage.mouseX;
             // This will eventually be replaced with keyboard input
+            if(managers.Game.keyboardManager.moveLeft)
+            {
+                this.x -= 7.5;
+            }
+            if(managers.Game.keyboardManager.moveRight)
+            {
+                this.x += 7.5;
+            }
+            if(managers.Game.keyboardManager.moveUp)
+            {
+                this.y-=7.5
+            }
+            if(managers.Game.keyboardManager.moveDown)
+            {
+                this.y+=7.5
+            }
+            if(managers.Game.keyboardManager.shoot)
+            {
+            
+            }
             // Maybe xbox controller....maybe...
         }
         public CheckBound():void {

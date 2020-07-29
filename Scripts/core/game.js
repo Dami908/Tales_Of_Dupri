@@ -8,6 +8,7 @@
     // Store current scene information
     var currentScene;
     var currentState;
+    var keyboardManager;
     assetManifest = [
         { id: "startButton", src: "./Assets/StartButton.png" },
         { id: "nextButton", src: "./Assets/Play.png" },
@@ -33,14 +34,16 @@
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", Update);
         // Set up default game states -- State Machine
-        objects.Game.stage = stage;
-        objects.Game.currentScene = config.Scene.START;
+        managers.Game.stage = stage;
+        managers.Game.currentScene = config.Scene.START;
         currentState = config.Scene.START;
+        keyboardManager = new managers.Keyboard;
+        managers.Game.keyboardManager = keyboardManager;
         Main();
     }
     function Update() {
         // Has my state changed since the last check?
-        if (currentState != objects.Game.currentScene) {
+        if (currentState != managers.Game.currentScene) {
             console.log("Changing scenes to " + objects.Game.currentScene);
             Main();
         }
@@ -50,7 +53,7 @@
     function Main() {
         console.log("Game Start");
         // Finite State Machine
-        switch (objects.Game.currentScene) {
+        switch (managers.Game.currentScene) {
             case config.Scene.START:
                 stage.removeAllChildren();
                 currentScene = new scenes.StartScene(assetManager);
@@ -67,7 +70,7 @@
                 stage.addChild(currentScene);
                 break;
         }
-        currentState = objects.Game.currentScene;
+        currentState = managers.Game.currentScene;
     }
     window.onload = Init;
 })();
