@@ -3,6 +3,8 @@ module scenes {
         // Variables
         private gameOverLabel: objects.Label;
         private backButton: objects.Button;
+        private homeButton:objects.Button;
+        private background2: objects.Background4;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -14,24 +16,33 @@ module scenes {
         // Method
         public Start():void {
             // Initialize our variables
+            this.background2 = new objects.Background4(this.assetManager);
             this.gameOverLabel = new objects.Label(
-                "Game Over!", "40px", "Consolas", "#000000", 320, 240, true);
+                "Best Delivery more like crappy delivery!", "25px", "Consolas", "#FFFFFF", 320, 240, true);
 
             this.backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
+            this.homeButton=new objects.Button(this.assetManager,"Home",200,340);
             this.Main();
         }
 
         public Update():void {}
 
         public Main():void {
+            this.addChild(this.background2);
             this.addChild(this.gameOverLabel);
             this.addChild(this.backButton);
+            this.addChild(this.homeButton);
 
             this.backButton.on("click", this.backButtonClick);
+            this.homeButton.on("click",this.homeButtonClick);
         }
 
         private backButtonClick():void {
-            objects.Game.currentScene = config.Scene.GAME;
+            managers.Game.currentScene = config.Scene.GAME;
+        }
+        private homeButtonClick():void{
+            createjs.Sound.stop();
+            managers.Game.currentScene = config.Scene.START;
         }
     }
 }

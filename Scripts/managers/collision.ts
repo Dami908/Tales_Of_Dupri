@@ -1,6 +1,7 @@
 module managers{
     export class Collision{
         public static lives:number=100;
+        private static enemy:objects.Enemy;
         public  scoreBoard:managers.Scoreboard;
        
         public static Check(obj1: objects.GameObject, obj2: objects.GameObject)
@@ -21,16 +22,19 @@ module managers{
                     // Check what I am colliding with. 
                     switch(obj2.name) {
                         case "enemy":
-                            
-                            console.log("collision", this.lives-=25);
+
+                           createjs.Sound.play("explode");
+                           console.log("collision", this.lives-=25);
                             
                             //createjs.Sound.play("explosion");
                             //console.log("collision");
                         break;
                         case "Craft":
+                                createjs.Sound.play("explode");
                                 console.log("collision", this.lives-=25);
                         break;
                         case "Spaceship":
+                                createjs.Sound.play("explode");
                                 console.log("collision", this.lives-=25);
                          break;
                         

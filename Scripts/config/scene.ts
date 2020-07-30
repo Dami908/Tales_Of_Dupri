@@ -3,6 +3,7 @@ module config {
         START,
         GAME,
         OVER,
-        WIN
+        WIN,
+        INFO
     }
 }

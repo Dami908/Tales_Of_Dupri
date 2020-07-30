@@ -13,49 +13,48 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var StartScene = /** @class */ (function (_super) {
-        __extends(StartScene, _super);
+    var InfoScene = /** @class */ (function (_super) {
+        __extends(InfoScene, _super);
         // Constructor
-        function StartScene(assetManager) {
+        function InfoScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
             _this.Start();
             return _this;
         }
         // Methods
-        StartScene.prototype.Start = function () {
+        InfoScene.prototype.Start = function () {
             // Initialize our objects for this scene
             this.background = new objects.Background(this.assetManager);
-            this.welcomeLabel = new objects.Label("Tales Of Dupri.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
-            this.welcomeLabel3 = new objects.Label("Space Delivery Extraordinaire.", "35px", "Consolas", "#FFFFFF", 305, 100, true);
-            this.welcomeLabel1 = new objects.Label("A World of Adventure  and steamy meals Awaits you.", "20px", "Consolas", "#FFFFFF", 305, 150, true);
-            this.welcomeLabel2 = new objects.Label("Are you ready ;)!!!!!!!", "20px", "Consolas", "#FFFFFF", 305, 190, true);
+            this.welcomeLabel = new objects.Label("INFO.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
+            this.welcomeLabel3 = new objects.Label("1.) You start the level with 4 lives.", "25px", "Consolas", "#FFFFFF", 305, 100, true);
+            this.welcomeLabel1 = new objects.Label("2.) Dodge all incoming traffic from both asteroids and ships.", "15px", "Consolas", "#FFFFFF", 305, 150, true);
+            this.welcomeLabel2 = new objects.Label("3.)Outlast the timer and get the delivery to the client ;)!!!!!!!", "15px", "Consolas", "#FFFFFF", 305, 190, true);
+            this.welcomeLabel4 = new objects.Label("3.)Key score periods 2500 and 5000", "25px", "Consolas", "#FFFFFF", 305, 230, true);
             // NOTE: PreloadJS manifest id
             this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
             //Instantiate Sound
-            this.backgroundMusic = createjs.Sound.play("start_music");
-            this.backgroundMusic.loop = -1;
-            this.backgroundMusic.volume = 0.2;
             this.Main();
         };
-        StartScene.prototype.Update = function () {
+        InfoScene.prototype.Update = function () {
             // this.background.Update();
         };
-        StartScene.prototype.Main = function () {
+        InfoScene.prototype.Main = function () {
             // Add items to the scene
             this.addChild(this.background);
             this.addChild(this.welcomeLabel);
             this.addChild(this.welcomeLabel1);
             this.addChild(this.welcomeLabel2);
             this.addChild(this.welcomeLabel3);
+            this.addChild(this.welcomeLabel4);
             this.addChild(this.startButton);
             this.startButton.on("click", this.startButtonClick);
         };
-        StartScene.prototype.startButtonClick = function () {
+        InfoScene.prototype.startButtonClick = function () {
             // Change from START to GAME scene
-            managers.Game.currentScene = config.Scene.INFO;
+            managers.Game.currentScene = config.Scene.GAME;
         };
-        return StartScene;
+        return InfoScene;
     }(objects.Scene));
-    scenes.StartScene = StartScene;
+    scenes.InfoScene = InfoScene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=start.js.map
+//# sourceMappingURL=Info.js.map

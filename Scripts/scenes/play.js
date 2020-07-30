@@ -32,7 +32,7 @@ var scenes;
             this.enemies = new Array();
             this.enemies2 = new Array();
             this.enemies3 = new Array();
-            this.enemyNum = 2;
+            this.enemyNum = 3;
             this.enemyNum2 = 3;
             this.enemyNum3 = 4;
             for (var i = 0; i < this.enemyNum; i++) {

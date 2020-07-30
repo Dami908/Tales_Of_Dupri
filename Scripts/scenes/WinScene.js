@@ -28,6 +28,7 @@ var scenes;
             this.gameOverLabel = new objects.Label("Congratulations you did it!", "35px", "Consolas", "#FFFFFF", 315, 240, true);
             this.welcomeLabel1 = new objects.Label("Another excellent delivery ;).", "20px", "Consolas", "#FFFFFF", 320, 340, true);
             this.backButton = new objects.Button(this.assetManager, "backButton", 320, 440);
+            this.homeButton = new objects.Button(this.assetManager, "Home", 200, 440);
             this.Main();
         };
         WinScene.prototype.Update = function () { };
@@ -36,10 +37,16 @@ var scenes;
             this.addChild(this.gameOverLabel);
             this.addChild(this.welcomeLabel1);
             this.addChild(this.backButton);
+            this.addChild(this.homeButton);
             this.backButton.on("click", this.backButtonClick);
+            this.homeButton.on("click", this.homeButtonClick);
         };
         WinScene.prototype.backButtonClick = function () {
             managers.Game.currentScene = config.Scene.GAME;
+        };
+        WinScene.prototype.homeButtonClick = function () {
+            createjs.Sound.stop();
+            managers.Game.currentScene = config.Scene.START;
         };
         return WinScene;
     }(objects.Scene));

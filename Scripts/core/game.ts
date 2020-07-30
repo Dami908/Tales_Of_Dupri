@@ -18,11 +18,13 @@
     assetManifest = [
         {id:"startButton", src:"./Assets/StartButton.png"},
         {id:"nextButton", src:"./Assets/Play.png"},
-        {id:"backButton", src:"./Assets/BackButton.png"},
+        {id:"backButton", src:"./Assets/22.png"},
+        {id:"Home",src:"./Assets/ssss.png"},
         {id:"background2",src:"./Assets/space.jpg"},
         {id:"background3",src:"./Assets/jjj.jpg"},
         {id:"background4",src:"./Assets/kill.jpg"},
         {id:"Craft",src:"./Assets/craft.png"},
+        {id:"explode",src:"./Audio/explode.wav"},
         {id:"Spaceship",src:"/Assets/Spaceship.png"},
         {id:"background", src:"./Assets/409.png"},
         {id:"player", src:"./Assets/Shut.png"},
@@ -96,6 +98,11 @@
             case config.Scene.WIN:
                 stage.removeAllChildren();
                 currentScene=new scenes.WinScene(assetManager);
+                stage.addChild(currentScene);
+            break;
+            case config.Scene.INFO:
+                stage.removeAllChildren();
+                currentScene=new scenes.InfoScene(assetManager);
                 stage.addChild(currentScene);
             break;
         }

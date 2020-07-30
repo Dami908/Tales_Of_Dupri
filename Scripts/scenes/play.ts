@@ -32,7 +32,7 @@ module scenes {
             this.enemies = new Array<objects.Enemy>();
             this.enemies2=new Array<objects.Enemy2>();
             this.enemies3=new Array<objects.Enemy3>();
-            this.enemyNum = 2;
+            this.enemyNum = 3;
             this.enemyNum2 = 3;
             this.enemyNum3 = 4;
             for(let i = 0; i < this.enemyNum; i++) {

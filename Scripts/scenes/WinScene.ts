@@ -3,8 +3,10 @@ module scenes{
          // Variables
          private gameOverLabel: objects.Label;
          private welcomeLabel1: objects.Label;
+         private homeButton:objects.Button;
          private background3: objects.Background3;
          private backButton: objects.Button;
+         private backgroundMusic: createjs.AbstractSoundInstance;
  
          // Constructor
          constructor(assetManager:createjs.LoadQueue) {
@@ -15,10 +17,12 @@ module scenes{
          // Method
          public Start():void {
              // Initialize our variables
+             
              this.background3 = new objects.Background3(this.assetManager);
              this.gameOverLabel = new objects.Label("Congratulations you did it!", "35px", "Consolas", "#FFFFFF", 315, 240, true);
              this.welcomeLabel1 = new objects.Label("Another excellent delivery ;).", "20px", "Consolas", "#FFFFFF", 320, 340, true);
              this.backButton = new objects.Button(this.assetManager, "backButton", 320, 440);
+             this.homeButton=new objects.Button(this.assetManager,"Home",200,440);
              this.Main();
          }
  
@@ -29,14 +33,22 @@ module scenes{
              this.addChild(this.gameOverLabel);
              this.addChild(this.welcomeLabel1);
              this.addChild(this.backButton);
+             this.addChild(this.homeButton);
              
  
              this.backButton.on("click", this.backButtonClick);
+             this.homeButton.on("click",this.homeButtonClick);
          }
  
          private backButtonClick():void {
              managers.Game.currentScene = config.Scene.GAME;
 
          }
+         private homeButtonClick():void{
+            createjs.Sound.stop();
+            managers.Game.currentScene = config.Scene.START;
+            
+        }
+      
     }
 }
