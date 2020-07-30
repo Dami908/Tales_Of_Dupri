@@ -15,6 +15,7 @@ module scenes {
         private scoreCounter:number;
         private Stimer:number=10000;
         private scoreBoard:managers.Scoreboard;
+        private lives:managers.Collision;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -58,7 +59,7 @@ module scenes {
              this.counter=this.timer++;
              this.scoreCounter=this.Stimer--;
              this.scoreBoard.scoreLabel.text="Score:"+this.counter;
-             this.scoreBoard.TimerLabel.text="Time Left"+this.scoreCounter;
+             this.scoreBoard.TimerLabel.text="Time Left:"+this.scoreCounter;
              //Returns a message on the onsole log window when the position of the enemy is equall to the position of the player
              if(this.counter<2500){
                 console.log(this.counter);
@@ -97,7 +98,7 @@ module scenes {
              
             
             if(this.scoreCounter==0){
-                managers.Game.currentScene=config.Scene.OVER;
+                managers.Game.currentScene=config.Scene.WIN;
             }
            
         }

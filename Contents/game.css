@@ -6,3 +6,12 @@
     display: block;
     border: 1px black dotted
 }
+p{
+    font-size: 144px;
+    position: relative;
+    right:-30px;
+    
+}
+body{
+    background-image: url("./Assets/679.jpg");
+}

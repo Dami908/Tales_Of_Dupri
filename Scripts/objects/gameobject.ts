@@ -10,6 +10,7 @@ module objects {
         public halfW: number;  
         public halfH: number;
         public isColliding: boolean;
+        public isCollided:boolean;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue, imageString:string) {
@@ -32,6 +33,7 @@ module objects {
             this.regY = this.halfH;
 
             this.isColliding=false;
+            this.isCollided=true;
         }
 
         public Start():void {}

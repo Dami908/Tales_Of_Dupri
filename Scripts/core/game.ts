@@ -20,6 +20,10 @@
         {id:"nextButton", src:"./Assets/Play.png"},
         {id:"backButton", src:"./Assets/BackButton.png"},
         {id:"background2",src:"./Assets/space.jpg"},
+        {id:"background3",src:"./Assets/jjj.jpg"},
+        {id:"background4",src:"./Assets/kill.jpg"},
+        {id:"Craft",src:"./Assets/craft.png"},
+        {id:"Spaceship",src:"/Assets/Spaceship.png"},
         {id:"background", src:"./Assets/409.png"},
         {id:"player", src:"./Assets/Shut.png"},
         {id:"enemy", src:"./Assets/asteroids.png"},
@@ -59,7 +63,7 @@
         // Has my state changed since the last check?
         if(currentState != managers.Game.currentScene)
         {
-            console.log("Changing scenes to " + objects.Game.currentScene);
+            console.log("Changing scenes to " + managers.Game.currentScene);
             Main();
         }
 
@@ -87,6 +91,11 @@
             case config.Scene.OVER:
                 stage.removeAllChildren();
                 currentScene = new scenes.GameOverScene(assetManager);
+                stage.addChild(currentScene);
+            break;
+            case config.Scene.WIN:
+                stage.removeAllChildren();
+                currentScene=new scenes.WinScene(assetManager);
                 stage.addChild(currentScene);
             break;
         }

@@ -18,7 +18,7 @@ var objects;
         // Variables
         // Constructor
         function Enemy2(assetManager) {
-            var _this = _super.call(this, assetManager, "enemy") || this;
+            var _this = _super.call(this, assetManager, "Craft") || this;
             _this.Start();
             return _this;
         }
@@ -31,7 +31,7 @@ var objects;
             this.CheckBound();
         };
         Enemy2.prototype.Reset = function () {
-            this.y = Math.floor(Math.random() * 540) + 50;
+            this.y = Math.floor(Math.random() * 840) + 50;
             this.x = Math.floor(Math.random() * -800) - 50;
         };
         Enemy2.prototype.Move = function () {

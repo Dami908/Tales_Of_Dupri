@@ -32,6 +32,7 @@ var objects;
             this.regX = this.halfW;
             this.regY = this.halfH;
             this.isColliding = false;
+            this.isCollided = true;
         };
         GameObject.prototype.Start = function () { };
         GameObject.prototype.Update = function () { };

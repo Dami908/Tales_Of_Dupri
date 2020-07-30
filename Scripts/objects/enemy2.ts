@@ -3,7 +3,7 @@ module objects {
         // Variables
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager, "enemy");
+            super(assetManager, "Craft");
             this.Start();
         }
         // Methods
@@ -15,7 +15,7 @@ module objects {
             this.CheckBound();
         }
         public Reset():void {
-            this.y = Math.floor(Math.random() * 540) + 50;
+            this.y = Math.floor(Math.random() * 840) + 50;
             this.x = Math.floor(Math.random() * -800) - 50;
         }
         public Move():void {

@@ -2,12 +2,20 @@ module managers {
     export class Scoreboard extends createjs.Container {
         // Variables
         public scoreLabel: objects.Label;
-        public highScoreLabel: objects.Label;
         public TimerLabel:objects.Label;
+        public livesLabel:objects.Label;
 
         private score: number;
-        private highScore: number;
         private Timer:number;
+        private lives:number;
+
+        get Lives():number{
+            return this.lives;
+        }
+        set Lives(LivesTotal:number){
+            this.lives=LivesTotal;
+            this.livesLabel.text = "Total Lives: " + this.lives;
+        }
 
         get Time():number{
             return this.Timer;
@@ -24,13 +32,7 @@ module managers {
             this.score = newScore;
             this.scoreLabel.text = "Score: " + this.score;
         }
-        get HighScore():number {
-            return this.highScore;
-        }
-        set HighScore(newHighScore:number) {
-            this.highScore = newHighScore;
-            this.highScoreLabel.text = "High Score: " + this.highScore;
-        }
+       
         // Constructor
         constructor() {
             super();
@@ -40,20 +42,19 @@ module managers {
         private Init():void {
             // Create our labels
             this.scoreLabel = new objects.Label("Score: 999999", "20px", "Consolas", "#FFFF00", 0, 0, false);
-            this.highScoreLabel = new objects.Label("High score: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
             this.TimerLabel = new objects.Label("Time Left: 0", "20px", "Consolas", "#FFFF00", 230, 0, false);
+            this.livesLabel = new objects.Label("Food Integrity: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
 
             // Set a default score
             this.score = 0;
-            this.highScore = 0;
 
             this.Main();
         }
 
         private Main():void {
             this.addChild(this.scoreLabel);
-            this.addChild(this.highScoreLabel);
             this.addChild(this.TimerLabel);
+            this.addChild(this.livesLabel);
         }
     }
 }

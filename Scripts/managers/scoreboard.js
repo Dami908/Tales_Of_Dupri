@@ -21,6 +21,17 @@ var managers;
             _this.Init();
             return _this;
         }
+        Object.defineProperty(Scoreboard.prototype, "Lives", {
+            get: function () {
+                return this.lives;
+            },
+            set: function (LivesTotal) {
+                this.lives = LivesTotal;
+                this.livesLabel.text = "Total Lives: " + this.lives;
+            },
+            enumerable: false,
+            configurable: true
+        });
         Object.defineProperty(Scoreboard.prototype, "Time", {
             get: function () {
                 return this.Timer;
@@ -43,32 +54,20 @@ var managers;
             enumerable: false,
             configurable: true
         });
-        Object.defineProperty(Scoreboard.prototype, "HighScore", {
-            get: function () {
-                return this.highScore;
-            },
-            set: function (newHighScore) {
-                this.highScore = newHighScore;
-                this.highScoreLabel.text = "High Score: " + this.highScore;
-            },
-            enumerable: false,
-            configurable: true
-        });
         // Methods
         Scoreboard.prototype.Init = function () {
             // Create our labels
             this.scoreLabel = new objects.Label("Score: 999999", "20px", "Consolas", "#FFFF00", 0, 0, false);
-            this.highScoreLabel = new objects.Label("High score: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
             this.TimerLabel = new objects.Label("Time Left: 0", "20px", "Consolas", "#FFFF00", 230, 0, false);
+            this.livesLabel = new objects.Label("Food Integrity: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
             // Set a default score
             this.score = 0;
-            this.highScore = 0;
             this.Main();
         };
         Scoreboard.prototype.Main = function () {
             this.addChild(this.scoreLabel);
-            this.addChild(this.highScoreLabel);
             this.addChild(this.TimerLabel);
+            this.addChild(this.livesLabel);
         };
         return Scoreboard;
     }(createjs.Container));

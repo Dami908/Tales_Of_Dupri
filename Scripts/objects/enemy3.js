@@ -18,7 +18,7 @@ var objects;
         // Variables
         // Constructor
         function Enemy3(assetManager) {
-            var _this = _super.call(this, assetManager, "enemy") || this;
+            var _this = _super.call(this, assetManager, "Spaceship") || this;
             _this.Start();
             return _this;
         }
@@ -31,7 +31,7 @@ var objects;
             this.CheckBound();
         };
         Enemy3.prototype.Reset = function () {
-            this.y = Math.floor(Math.random() * 540) + 50;
+            this.y = Math.floor(Math.random() * 840) + 50;
             this.x = Math.floor(Math.random() * 900) + 650;
         };
         Enemy3.prototype.Move = function () {
