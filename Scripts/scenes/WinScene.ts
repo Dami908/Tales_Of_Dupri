@@ -9,8 +9,8 @@ module scenes{
          private backgroundMusic: createjs.AbstractSoundInstance;
  
          // Constructor
-         constructor(assetManager:createjs.LoadQueue) {
-             super(assetManager);
+         constructor() {
+             super();
              this.Start();
          }
  
@@ -18,11 +18,11 @@ module scenes{
          public Start():void {
              // Initialize our variables
              
-             this.background3 = new objects.Background3(this.assetManager);
+             this.background3 = new objects.Background3();
              this.gameOverLabel = new objects.Label("Congratulations you did it!", "35px", "Consolas", "#FFFFFF", 315, 240, true);
              this.welcomeLabel1 = new objects.Label("Another excellent delivery ;).", "20px", "Consolas", "#FFFFFF", 320, 340, true);
-             this.backButton = new objects.Button(this.assetManager, "backButton", 320, 440);
-             this.homeButton=new objects.Button(this.assetManager,"Home",200,440);
+             this.backButton = new objects.Button( "backButton", 370, 440);
+             this.homeButton=new objects.Button("Home",2500,440);
              this.Main();
          }
  

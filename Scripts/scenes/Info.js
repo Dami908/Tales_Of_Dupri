@@ -16,22 +16,22 @@ var scenes;
     var InfoScene = /** @class */ (function (_super) {
         __extends(InfoScene, _super);
         // Constructor
-        function InfoScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function InfoScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // Methods
         InfoScene.prototype.Start = function () {
             // Initialize our objects for this scene
-            this.background = new objects.Background(this.assetManager);
+            this.background = new objects.Background();
             this.welcomeLabel = new objects.Label("INFO.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
             this.welcomeLabel3 = new objects.Label("1.) You start the level with 4 lives.", "25px", "Consolas", "#FFFFFF", 305, 100, true);
             this.welcomeLabel1 = new objects.Label("2.) Dodge all incoming traffic from both asteroids and ships.", "15px", "Consolas", "#FFFFFF", 305, 150, true);
             this.welcomeLabel2 = new objects.Label("3.)Outlast the timer and get the delivery to the client ;)!!!!!!!", "15px", "Consolas", "#FFFFFF", 305, 190, true);
             this.welcomeLabel4 = new objects.Label("3.)Key score periods 2500 and 5000", "25px", "Consolas", "#FFFFFF", 305, 230, true);
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
+            this.startButton = new objects.Button("nextButton", 320, 700);
             //Instantiate Sound
             this.Main();
         };

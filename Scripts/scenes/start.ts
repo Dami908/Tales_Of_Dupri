@@ -10,14 +10,14 @@ module scenes {
         private backgroundMusic: createjs.AbstractSoundInstance;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
         // Methods
         public Start():void {
             // Initialize our objects for this scene
-            this.background = new objects.Background(this.assetManager);
+            this.background = new objects.Background();
 
             this.welcomeLabel = new objects.Label("Tales Of Dupri.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
             this.welcomeLabel3 = new objects.Label("Space Delivery Extraordinaire.", "35px", "Consolas", "#FFFFFF", 305, 100, true);
@@ -25,7 +25,7 @@ module scenes {
             this.welcomeLabel2 = new objects.Label("Are you ready ;)!!!!!!!", "20px", "Consolas", "#FFFFFF", 305, 190, true);
 
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
+            this.startButton = new objects.Button("nextButton", 320, 700);
 
             //Instantiate Sound
             

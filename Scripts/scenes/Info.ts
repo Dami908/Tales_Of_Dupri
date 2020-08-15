@@ -11,14 +11,14 @@ module scenes {
         private backgroundMusic: createjs.AbstractSoundInstance;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
         // Methods
         public Start():void {
             // Initialize our objects for this scene
-            this.background = new objects.Background(this.assetManager);
+            this.background = new objects.Background();
 
             this.welcomeLabel = new objects.Label("INFO.", "35px", "Consolas", "#FFFFFF", 305, 40, true);
             this.welcomeLabel3 = new objects.Label("1.) You start the level with 4 lives.", "25px", "Consolas", "#FFFFFF", 305, 100, true);
@@ -27,7 +27,7 @@ module scenes {
             this.welcomeLabel4 = new objects.Label("3.)Key score periods 2500 and 5000", "25px", "Consolas", "#FFFFFF", 305, 230, true);
 
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 150, 700);
+            this.startButton = new objects.Button("nextButton", 320, 700);
 
             //Instantiate Sound
             

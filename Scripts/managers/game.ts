@@ -5,5 +5,6 @@ module managers{
         public static assetManager:createjs.LoadQueue;
         public static currentScene:number;
         public static keyboardManager:managers.Keyboard;
+        public static textureAtlas:createjs.SpriteSheet;
     }
 }

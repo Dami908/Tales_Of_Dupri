@@ -17,8 +17,8 @@ var objects;
         __extends(Enemy3, _super);
         // Variables
         // Constructor
-        function Enemy3(assetManager) {
-            var _this = _super.call(this, assetManager, "Spaceship") || this;
+        function Enemy3() {
+            var _this = _super.call(this, "Spaceship") || this;
             _this.Start();
             return _this;
         }

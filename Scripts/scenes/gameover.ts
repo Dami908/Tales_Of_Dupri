@@ -7,8 +7,8 @@ module scenes {
         private background2: objects.Background4;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
 
             this.Start();
         }
@@ -16,12 +16,12 @@ module scenes {
         // Method
         public Start():void {
             // Initialize our variables
-            this.background2 = new objects.Background4(this.assetManager);
+            this.background2 = new objects.Background4();
             this.gameOverLabel = new objects.Label(
                 "Best Delivery more like crappy delivery!", "25px", "Consolas", "#FFFFFF", 320, 240, true);
 
-            this.backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
-            this.homeButton=new objects.Button(this.assetManager,"Home",200,340);
+            this.backButton = new objects.Button( "backButton", 370, 340);
+            this.homeButton=new objects.Button("Home",250,340);
             this.Main();
         }
 

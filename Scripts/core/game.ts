@@ -15,21 +15,45 @@
 
     let keyboardManager: managers.Keyboard;
 
+    let textureAtlasData:any;
+    let textureAtlas:createjs.SpriteSheet;
+
+    textureAtlasData={
+        "images": [
+            "./Assets/Sprites/textureAtlas2.png"
+        ],
+        
+        "framerate": 20,
+        "frames": [
+            [0, 0, 100, 100, 0, 0, 0],
+            [100, 0, 86, 86, 0, 0, 0],
+            [186, 0, 75, 75, 0, 0, 0],
+            [261, 0, 78, 52, 0, 0, 0],
+            [0, 100, 300, 80, 0, 0, 0],
+            [300, 100, 52, 52, 0, 0, 0],
+            [0, 180, 220, 172, 0, 0, 0],
+            [220, 180, 100, 100, 0, 0, 0]
+        ],
+        
+        "animations": {
+            "backButton": { "frames": [0] },
+            "asteroids":{"frames":[1]},
+            "craft":{"frames":[2]},
+            "Explosion":{"frames":[3]},
+            "nextButton":{"frames":[4]},
+            "Player":{"frames":[5]},
+            "Spaceship":{"frames":[6]},
+            "Home":{"frames":[7]}
+        },
+    };
+
     assetManifest = [
-        {id:"startButton", src:"./Assets/StartButton.png"},
-        {id:"nextButton", src:"./Assets/Play.png"},
-        {id:"backButton", src:"./Assets/22.png"},
-        {id:"Home",src:"./Assets/ssss.png"},
         {id:"background2",src:"./Assets/space.jpg"},
         {id:"background3",src:"./Assets/jjj.jpg"},
         {id:"background4",src:"./Assets/kill.jpg"},
-        {id:"Craft",src:"./Assets/craft.png"},
         {id:"explode",src:"./Audio/explode.wav"},
-        {id:"Spaceship",src:"/Assets/Spaceship.png"},
         {id:"background", src:"./Assets/409.png"},
-        {id:"player", src:"./Assets/Shut.png"},
-        {id:"enemy", src:"./Assets/asteroids.png"},
-        {id:"start_music",src:"./Audio/Melodic_House.mp3"}
+        {id:"start_music",src:"./Audio/Melodic_House.mp3"},
     ];
 
     function Init() {
@@ -43,6 +67,8 @@
 
     function Start() {
         console.log("Starting Application...");
+        //textureAtlasData.images = [ assetManager.getResult("textureAtlas")];
+        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
 
         // Initialize CreateJS
         stage = new createjs.Stage(canvas);
@@ -58,6 +84,9 @@
 
         keyboardManager = new managers.Keyboard;
         managers.Game.keyboardManager = keyboardManager;
+
+        managers.Game.assetManager=assetManager;
+        managers.Game.textureAtlas=textureAtlas;
         Main();
     }
 
@@ -82,27 +111,27 @@
         {
             case config.Scene.START:
                 stage.removeAllChildren();
-                currentScene = new scenes.StartScene(assetManager);
+                currentScene = new scenes.StartScene();
                 stage.addChild(currentScene);
             break;
             case config.Scene.GAME:
                 stage.removeAllChildren();
-                currentScene = new scenes.PlayScene(assetManager);
+                currentScene = new scenes.PlayScene();
                 stage.addChild(currentScene);
             break;
             case config.Scene.OVER:
                 stage.removeAllChildren();
-                currentScene = new scenes.GameOverScene(assetManager);
+                currentScene = new scenes.GameOverScene();
                 stage.addChild(currentScene);
             break;
             case config.Scene.WIN:
                 stage.removeAllChildren();
-                currentScene=new scenes.WinScene(assetManager);
+                currentScene=new scenes.WinScene();
                 stage.addChild(currentScene);
             break;
             case config.Scene.INFO:
                 stage.removeAllChildren();
-                currentScene=new scenes.InfoScene(assetManager);
+                currentScene=new scenes.InfoScene();
                 stage.addChild(currentScene);
             break;
         }

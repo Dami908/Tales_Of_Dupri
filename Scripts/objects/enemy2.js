@@ -17,8 +17,8 @@ var objects;
         __extends(Enemy2, _super);
         // Variables
         // Constructor
-        function Enemy2(assetManager) {
-            var _this = _super.call(this, assetManager, "Craft") || this;
+        function Enemy2() {
+            var _this = _super.call(this, "craft") || this;
             _this.Start();
             return _this;
         }

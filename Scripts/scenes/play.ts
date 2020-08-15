@@ -18,17 +18,17 @@ module scenes {
         private lives:managers.Collision;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
 
         public Start():void {
             console.log("Play scene start");
             // Inintialize our variables
-            this.background2 = new objects.Background2(this.assetManager);
-            this.player = new objects.Player(this.assetManager);
-            this.enemy = new objects.Enemy(this.assetManager);
+            this.background2 = new objects.Background2();
+            this.player = new objects.Player();
+            this.enemy = new objects.Enemy();
             this.enemies = new Array<objects.Enemy>();
             this.enemies2=new Array<objects.Enemy2>();
             this.enemies3=new Array<objects.Enemy3>();
@@ -36,13 +36,13 @@ module scenes {
             this.enemyNum2 = 3;
             this.enemyNum3 = 4;
             for(let i = 0; i < this.enemyNum; i++) {
-                this.enemies[i] = new objects.Enemy(this.assetManager);
+                this.enemies[i] = new objects.Enemy();
             }
             for(let i = 0; i < this.enemyNum2; i++){
-                this.enemies2[i] = new objects.Enemy2(this.assetManager);
+                this.enemies2[i] = new objects.Enemy2();
             }
             for(let i = 0; i < this.enemyNum3; i++){
-                this.enemies3[i] = new objects.Enemy3(this.assetManager);
+                this.enemies3[i] = new objects.Enemy3();
             }
             this.scoreBoard = new managers.Scoreboard();
             this.scoreBoard.x = 10;

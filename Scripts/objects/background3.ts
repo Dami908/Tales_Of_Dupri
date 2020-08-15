@@ -3,9 +3,9 @@ module objects {
         // Variables
         private speedY:number = 0.5;
         // Constructor
-        constructor(assetManager:createjs.LoadQueue)
+        constructor()
         {
-            super(assetManager.getResult("background3"));
+            super(managers.Game.assetManager.getResult("background3"));
             console.log("Creating the background");
 
             this.Start();

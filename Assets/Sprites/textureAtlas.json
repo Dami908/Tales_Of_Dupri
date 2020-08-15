@@ -1,0 +1,35 @@
+{
+
+"images": [
+    "textureAtlas2.png"
+],
+
+"framerate": 20,
+"frames": [
+    [0, 0, 100, 100, 0, -15, -31],
+    [100, 0, 86, 86, 0, 0, 0],
+    [186, 0, 75, 75, 0, 0, 0],
+    [261, 0, 78, 52, 0, 0, 0],
+    [0, 100, 300, 80, 0, 0, 0],
+    [300, 100, 52, 52, 0, 0, 0],
+    [0, 180, 220, 172, 0, -9, -1],
+    [220, 180, 100, 100, 0, -3, -16]
+],
+
+"animations": {
+    "22": { "frames": [0] },
+    "asteroids":{"frames":[1]},
+    "craft":{"frames":[2]},
+    "Explosion":{"frames":[3]},
+    "Play":{"frames":[4]},
+    "Shut":{"frames":[5]},
+    "Spaceship":{"frames":[6]},
+    "ssss":{"frames":[7]}
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:7856d78e5d4fc981e2d0018e05b4fc18:0902d7ed900a1bbcdc077e8577bb65b3:2b5604bc88faefd55ddac16e9bce1532$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

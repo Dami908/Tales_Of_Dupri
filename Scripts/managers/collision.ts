@@ -21,7 +21,7 @@ module managers{
                     // React to our collision
                     // Check what I am colliding with. 
                     switch(obj2.name) {
-                        case "enemy":
+                        case "asteroids":
 
                            createjs.Sound.play("explode");
                            console.log("collision", this.lives-=25);
@@ -29,7 +29,7 @@ module managers{
                             //createjs.Sound.play("explosion");
                             //console.log("collision");
                         break;
-                        case "Craft":
+                        case "craft":
                                 createjs.Sound.play("explode");
                                 console.log("collision", this.lives-=25);
                         break;

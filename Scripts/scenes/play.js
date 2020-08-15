@@ -16,8 +16,8 @@ var scenes;
     var PlayScene = /** @class */ (function (_super) {
         __extends(PlayScene, _super);
         // Constructor
-        function PlayScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function PlayScene() {
+            var _this = _super.call(this) || this;
             _this.timer = 0;
             _this.Stimer = 10000;
             _this.Start();
@@ -26,9 +26,9 @@ var scenes;
         PlayScene.prototype.Start = function () {
             console.log("Play scene start");
             // Inintialize our variables
-            this.background2 = new objects.Background2(this.assetManager);
-            this.player = new objects.Player(this.assetManager);
-            this.enemy = new objects.Enemy(this.assetManager);
+            this.background2 = new objects.Background2();
+            this.player = new objects.Player();
+            this.enemy = new objects.Enemy();
             this.enemies = new Array();
             this.enemies2 = new Array();
             this.enemies3 = new Array();
@@ -36,13 +36,13 @@ var scenes;
             this.enemyNum2 = 3;
             this.enemyNum3 = 4;
             for (var i = 0; i < this.enemyNum; i++) {
-                this.enemies[i] = new objects.Enemy(this.assetManager);
+                this.enemies[i] = new objects.Enemy();
             }
             for (var i = 0; i < this.enemyNum2; i++) {
-                this.enemies2[i] = new objects.Enemy2(this.assetManager);
+                this.enemies2[i] = new objects.Enemy2();
             }
             for (var i = 0; i < this.enemyNum3; i++) {
-                this.enemies3[i] = new objects.Enemy3(this.assetManager);
+                this.enemies3[i] = new objects.Enemy3();
             }
             this.scoreBoard = new managers.Scoreboard();
             this.scoreBoard.x = 10;

@@ -16,8 +16,8 @@ var objects;
     var Background3 = /** @class */ (function (_super) {
         __extends(Background3, _super);
         // Constructor
-        function Background3(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("background3")) || this;
+        function Background3() {
+            var _this = _super.call(this, managers.Game.assetManager.getResult("background3")) || this;
             // Variables
             _this.speedY = 0.5;
             console.log("Creating the background");

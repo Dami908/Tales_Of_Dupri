@@ -16,18 +16,18 @@ var scenes;
     var GameOverScene = /** @class */ (function (_super) {
         __extends(GameOverScene, _super);
         // Constructor
-        function GameOverScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function GameOverScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // Method
         GameOverScene.prototype.Start = function () {
             // Initialize our variables
-            this.background2 = new objects.Background4(this.assetManager);
+            this.background2 = new objects.Background4();
             this.gameOverLabel = new objects.Label("Best Delivery more like crappy delivery!", "25px", "Consolas", "#FFFFFF", 320, 240, true);
-            this.backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
-            this.homeButton = new objects.Button(this.assetManager, "Home", 200, 340);
+            this.backButton = new objects.Button("backButton", 370, 340);
+            this.homeButton = new objects.Button("Home", 250, 340);
             this.Main();
         };
         GameOverScene.prototype.Update = function () { };
