@@ -93,7 +93,7 @@ var scenes;
                 });
             }
             if (this.scoreCounter == 0) {
-                managers.Game.currentScene = config.Scene.WIN;
+                managers.Game.currentScene = config.Scene.PLAY2;
             }
         };
         PlayScene.prototype.Main = function () {

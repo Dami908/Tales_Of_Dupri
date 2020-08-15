@@ -30,7 +30,7 @@ var managers;
                     }
                     obj2.isColliding = true;
                     if (this.lives == 0) {
-                        managers.Game.currentScene = config.Scene.OVER;
+                        managers.Game.currentScene = config.Scene.PLAY2;
                         this.lives = 100;
                     }
                 }

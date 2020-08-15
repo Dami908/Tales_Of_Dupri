@@ -111,6 +111,11 @@
                 currentScene = new scenes.InfoScene();
                 stage.addChild(currentScene);
                 break;
+            case config.Scene.PLAY2:
+                stage.removeAllChildren();
+                currentScene = new scenes.Play2Scene();
+                stage.addChild(currentScene);
+                break;
         }
         currentState = managers.Game.currentScene;
         managers.Game.currentSceneObject = currentScene;
