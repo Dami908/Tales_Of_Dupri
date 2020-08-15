@@ -4,6 +4,7 @@ module config {
         GAME,
         OVER,
         WIN,
-        INFO
+        INFO,
+        PLAY2
     }
 }

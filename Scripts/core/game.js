@@ -21,6 +21,7 @@
             [100, 0, 86, 86, 0, 0, 0],
             [186, 0, 75, 75, 0, 0, 0],
             [261, 0, 78, 52, 0, 0, 0],
+            [339, 0, 16, 21, 0, 0, 0],
             [0, 100, 300, 80, 0, 0, 0],
             [300, 100, 52, 52, 0, 0, 0],
             [0, 180, 220, 172, 0, 0, 0],
@@ -31,10 +32,11 @@
             "asteroids": { "frames": [1] },
             "craft": { "frames": [2] },
             "Explosion": { "frames": [3] },
-            "nextButton": { "frames": [4] },
-            "Player": { "frames": [5] },
-            "Spaceship": { "frames": [6] },
-            "Home": { "frames": [7] }
+            "laser1": { "frames": [4] },
+            "nextButton": { "frames": [5] },
+            "Player": { "frames": [6] },
+            "Spaceship": { "frames": [7] },
+            "Home": { "frames": [8] }
         },
     };
     assetManifest = [
@@ -54,7 +56,7 @@
     }
     function Start() {
         console.log("Starting Application...");
-        //textureAtlasData.images = [ assetManager.getResult("textureAtlas")];
+        // textureAtlasData.images = [ assetManager.getResult("textureAtlas2")];
         textureAtlas = new createjs.SpriteSheet(textureAtlasData);
         // Initialize CreateJS
         stage = new createjs.Stage(canvas);
@@ -111,6 +113,7 @@
                 break;
         }
         currentState = managers.Game.currentScene;
+        managers.Game.currentSceneObject = currentScene;
     }
     window.onload = Init;
 })();

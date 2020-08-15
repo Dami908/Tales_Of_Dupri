@@ -1,6 +1,10 @@
 module objects {
     export class Player extends objects.GameObject {
         // Variables
+        private laserSpawn:math.Vec2;
+        private Lasers:objects.Laser[];
+        public laserCount:number=0;
+        public isDead:boolean;
         // Constructor
         constructor() {
             super("Player");
@@ -10,10 +14,16 @@ module objects {
         public Start():void {
             this.x = 320;
             this.y = 700;
+            this.isDead=false;
+            this.Lasers=new Array<objects.Laser>();
         }
         public Update():void {
             this.Move();
             this.CheckBound();
+            this.LaserFire();
+            this.Lasers.forEach(laser=>{
+                laser.Update();
+            });
         }
         public Reset():void {}
         public Move():void {
@@ -59,6 +69,22 @@ module objects {
             if(this.y<=this.halfH){
                 this.y=this.halfH;
             }
+        }
+        public LaserFire():void{
+            let ticker:number=createjs.Ticker.getTicks();
+            if(!this.isDead && managers.Game.keyboardManager.shoot && (ticker % 10 == 0))
+            {
+                this.laserSpawn=new math.Vec2(this.x,this.y-this.halfH);
+                let laser = new objects.Laser();
+                laser.x=this.laserSpawn.x;
+                laser.y=this.laserSpawn.y;
+                this.Lasers[this.laserCount]=laser;
+                managers.Game.currentSceneObject.addChild(laser);
+                this.laserCount++;
+
+
+            }
+
         }
     }
 }

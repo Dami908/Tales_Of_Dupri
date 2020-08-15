@@ -10,6 +10,7 @@
     [100, 0, 86, 86, 0, 0, 0],
     [186, 0, 75, 75, 0, 0, 0],
     [261, 0, 78, 52, 0, 0, 0],
+    [339, 0, 16, 21, 0, 0, 0],
     [0, 100, 300, 80, 0, 0, 0],
     [300, 100, 52, 52, 0, 0, 0],
     [0, 180, 220, 172, 0, -9, -1],
@@ -21,10 +22,11 @@
     "asteroids":{"frames":[1]},
     "craft":{"frames":[2]},
     "Explosion":{"frames":[3]},
-    "Play":{"frames":[4]},
-    "Shut":{"frames":[5]},
-    "Spaceship":{"frames":[6]},
-    "ssss":{"frames":[7]}
+    "laser1":{"frames":[4]},
+    "Play":{"frames":[5]},
+    "Shut":{"frames":[6]},
+    "Spaceship":{"frames":[7]},
+    "ssss":{"frames":[8]}
 },
 
 "texturepacker": [

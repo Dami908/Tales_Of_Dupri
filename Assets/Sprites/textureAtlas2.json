@@ -33,6 +33,14 @@
 	"sourceSize": {"w":78,"h":52}
 },
 {
+	"filename": "laser1.png",
+	"frame": {"x":339,"y":0,"w":16,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":21},
+	"sourceSize": {"w":16,"h":21}
+},
+{
 	"filename": "Play.png",
 	"frame": {"x":0,"y":100,"w":300,"h":80},
 	"rotated": false,
@@ -69,8 +77,8 @@
 	"version": "1.0",
 	"image": "textureAtlas2.png",
 	"format": "RGBA8888",
-	"size": {"w":352,"h":352},
+	"size": {"w":355,"h":352},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1b9880ac2b7f963c6820a4ee49edbd70:8a0197acae586edcb049cf34c48fc0ae:9885562662227b297c62921be43b5666$"
+	"smartupdate": "$TexturePacker:SmartUpdate:76b91aec2a79225b9c804ad87a5447a6:29f04b3bf4723670f311f139c3372373:9885562662227b297c62921be43b5666$"
 }
 }
