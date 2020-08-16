@@ -32,6 +32,9 @@ var scenes;
             this.enemies = new Array();
             this.enemies2 = new Array();
             this.enemies3 = new Array();
+            this.Ring = new objects.Gate();
+            this.Rings = new Array();
+            this.ringNum = 1;
             this.enemyNum = 3;
             this.enemyNum2 = 2;
             this.enemyNum3 = 4;
@@ -40,6 +43,9 @@ var scenes;
             }
             for (var i = 0; i < this.enemyNum2; i++) {
                 this.enemies2[i] = new objects.Enemy();
+            }
+            for (var i = 0; i < this.ringNum; i++) {
+                this.Rings[i] = new objects.Gate();
             }
             this.scoreBoard = new managers.Scoreboard();
             this.scoreBoard.x = 10;
@@ -59,17 +65,25 @@ var scenes;
             //console.log(this.counter);
             this.enemies.forEach(function (e) {
                 e.Update();
-                managers.Collision.Check(_this.player, e);
+                managers.Collision2.Check(_this.player, e);
             });
-            if (this.counter > 2500) {
+            this.Rings.forEach(function (e) {
+                e.Update();
+                managers.Collision2.Check(_this.player, e);
+            });
+            if (this.counter > 500) {
+                this.Rings.forEach(function (e) {
+                    e.Update();
+                    managers.Collision2.Check(_this.player, e);
+                });
                 this.enemies.forEach(function (e) {
                     e.Update();
-                    managers.Collision.Check(_this.player, e);
+                    managers.Collision2.Check(_this.player, e);
                 });
                 this.enemies2.forEach(function (e) {
                     console.log("wave2");
                     e.Update();
-                    managers.Collision.Check(_this.player, e);
+                    managers.Collision2.Check(_this.player, e);
                 });
             }
             if (this.scoreCounter == 0) {
@@ -84,6 +98,9 @@ var scenes;
                 _this.addChild(e);
             });
             this.enemies2.forEach(function (e) {
+                _this.addChild(e);
+            });
+            this.Rings.forEach(function (e) {
                 _this.addChild(e);
             });
             this.addChild(this.scoreBoard);

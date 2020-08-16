@@ -16,7 +16,10 @@ module scenes{
         private Stimer:number=10000;
         private collided:boolean;
         private scoreBoard:managers.Scoreboard;
-        private lives:managers.Collision;
+        private lives:managers.Collision2;
+        private Ring:objects.Gate;
+        private Rings:objects.Gate[];
+        private ringNum:number;
 
         // Constructor
         constructor() {
@@ -33,6 +36,9 @@ module scenes{
             this.enemies = new Array<objects.Enemy>();
             this.enemies2=new Array<objects.Enemy>();
             this.enemies3=new Array<objects.Enemy3>();
+            this.Ring=new objects.Gate();
+            this.Rings=new Array<objects.Gate>();
+            this.ringNum=1;
             this.enemyNum = 3;
             this.enemyNum2 = 2
             this.enemyNum3 = 4;
@@ -41,6 +47,9 @@ module scenes{
             }
             for(let i=0;i<this.enemyNum2;i++){
                 this.enemies2[i]=new objects.Enemy();
+            }
+            for(let i=0;i<this.ringNum;i++){
+                this.Rings[i]=new objects.Gate();
             }
            
             this.scoreBoard = new managers.Scoreboard();
@@ -64,18 +73,29 @@ module scenes{
                 //console.log(this.counter);
                 this.enemies.forEach(e => {
                     e.Update();
-                    managers.Collision.Check(this.player,e);
+                    managers.Collision2.Check(this.player,e);
                 });
-                if(this.counter>2500){
+
+                this.Rings.forEach(e=>{
+                    e.Update();
+                    managers.Collision2.Check(this.player,e);
+                })
+                if(this.counter>500){
+                    this.Rings.forEach(e=>{
+                        e.Update();
+                        managers.Collision2.Check(this.player,e);
+                    })
                     this.enemies.forEach(e => {
                         e.Update();
-                        managers.Collision.Check(this.player,e);
+                        managers.Collision2.Check(this.player,e);
+                        
                     });
                     this.enemies2.forEach(e => {
                         console.log("wave2");
                         e.Update();
-                        managers.Collision.Check(this.player,e);
+                        managers.Collision2.Check(this.player,e);
                     });
+                   
 
                 }
             
@@ -98,6 +118,10 @@ module scenes{
             this.enemies2.forEach(e=>{
                 this.addChild(e);
             });
+
+            this.Rings.forEach(e=>{
+                this.addChild(e);
+            })
             
             this.addChild(this.scoreBoard);
         }

@@ -28,7 +28,7 @@ var scenes;
             this.gameOverLabel = new objects.Label("Congratulations you did it!", "35px", "Consolas", "#FFFFFF", 315, 240, true);
             this.welcomeLabel1 = new objects.Label("Another excellent delivery ;).", "20px", "Consolas", "#FFFFFF", 320, 340, true);
             this.backButton = new objects.Button("backButton", 370, 440);
-            this.homeButton = new objects.Button("Home", 2500, 440);
+            this.homeButton = new objects.Button("Home", 250, 440);
             this.Main();
         };
         WinScene.prototype.Update = function () { };

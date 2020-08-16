@@ -56,6 +56,7 @@
         {id:"explode",src:"./Audio/explode.wav"},
         {id:"background", src:"./Assets/409.png"},
         {id:"start_music",src:"./Audio/Melodic_House.mp3"},
+        {id:"Ring",src:"./Assets/ring.png"}
     ];
 
     function Init() {
