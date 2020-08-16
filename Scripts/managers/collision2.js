@@ -30,7 +30,7 @@ var managers;
                             console.log("collision", this.lives -= 25);
                             break;
                         case "laser1":
-                            createjs.Sound.play("explode");
+                            createjs.Sound.play("powerup");
                             console.log("Power cell", this.lives += 25);
                     }
                     obj2.isColliding = true;
@@ -38,7 +38,7 @@ var managers;
                         managers.Game.currentScene = config.Scene.OVER;
                         //this.lives=100;
                     }
-                    else if (this.lives == 125) {
+                    else if (this.lives == 150) {
                         managers.Game.currentScene = config.Scene.WIN;
                     }
                 }
@@ -47,7 +47,7 @@ var managers;
                 obj2.isColliding = false;
             }
         };
-        Collision2.lives = 0;
+        Collision2.lives = 25;
         return Collision2;
     }());
     managers.Collision2 = Collision2;

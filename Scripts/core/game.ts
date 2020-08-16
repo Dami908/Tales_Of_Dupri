@@ -56,6 +56,8 @@
         {id:"explode",src:"./Audio/explode.wav"},
         {id:"background", src:"./Assets/409.png"},
         {id:"start_music",src:"./Audio/Melodic_House.mp3"},
+        {id:"background5",src:"./Assets/spacey.jpg"},
+        {id:"powerup",src:"./Audio/Powerup.wav"},
         {id:"Ring",src:"./Assets/ring.png"}
     ];
 
@@ -141,6 +143,11 @@
                 stage.removeAllChildren();
                 currentScene=new scenes.Play2Scene();
                 stage.addChild(currentScene);
+             break;
+             case config.Scene.INFO2:
+                 stage.removeAllChildren();
+                 currentScene=new scenes.InfoScene2();
+                 stage.addChild(currentScene);
              break;
         }
 

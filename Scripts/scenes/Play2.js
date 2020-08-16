@@ -26,7 +26,7 @@ var scenes;
         Play2Scene.prototype.Start = function () {
             console.log("Play scene start");
             // Inintialize our variables
-            this.background2 = new objects.Background2();
+            this.background2 = new objects.Background5();
             this.player = new objects.Player();
             this.enemy = new objects.Enemy();
             this.enemies = new Array();
@@ -36,7 +36,7 @@ var scenes;
             this.Rings = new Array();
             this.ringNum = 1;
             this.enemyNum = 3;
-            this.enemyNum2 = 2;
+            this.enemyNum2 = 3;
             this.enemyNum3 = 4;
             for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy();

@@ -1,6 +1,6 @@
 module managers{
     export class Collision2{
-        public static lives:number=0;
+        public static lives:number=25;
         private static enemy:objects.Enemy;
         public  scoreBoard:managers.Scoreboard;
        
@@ -40,7 +40,7 @@ module managers{
                                 console.log("collision", this.lives-=25);
                          break;
                         case "laser1":
-                            createjs.Sound.play("explode");
+                            createjs.Sound.play("powerup");
                             console.log("Power cell",this.lives+=25)
                        
                     }
@@ -51,7 +51,7 @@ module managers{
                         managers.Game.currentScene=config.Scene.OVER;
                         //this.lives=100;
                      }
-                     else if(this.lives==125){
+                     else if(this.lives==150){
                          managers.Game.currentScene=config.Scene.WIN;
                      }
                 }

@@ -5,6 +5,7 @@ module config {
         OVER,
         WIN,
         INFO,
+        INFO2,
         PLAY2
     }
 }

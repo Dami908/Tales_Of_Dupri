@@ -1,7 +1,7 @@
 module scenes{
     export class Play2Scene extends objects.Scene{
         // Variables
-        private background2: objects.Background2;
+        private background2: objects.Background5;
         private player:objects.Player;
         private enemy:objects.Enemy;
         private enemies:objects.Enemy[];
@@ -30,7 +30,7 @@ module scenes{
         public Start():void {
             console.log("Play scene start");
             // Inintialize our variables
-            this.background2 = new objects.Background2();
+            this.background2 = new objects.Background5();
             this.player = new objects.Player();
             this.enemy = new objects.Enemy();
             this.enemies = new Array<objects.Enemy>();
@@ -40,7 +40,7 @@ module scenes{
             this.Rings=new Array<objects.Gate>();
             this.ringNum=1;
             this.enemyNum = 3;
-            this.enemyNum2 = 2
+            this.enemyNum2 = 3
             this.enemyNum3 = 4;
             for(let i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy();
